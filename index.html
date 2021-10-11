@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="title">ETCH A SKETCH</h2>
+      <div class="btns">
+        <button class="clear">Clear grid</button>
+        <button class="eraser">Eraser</button>
+        <button class="random-color">Random color</button>
+        <button class="default-color">Default color</button>
+      </div>
+      <form id="slidecontainer">
+        <input
+          type="number"
+          name="rows"
+          id="rows"
+          placeholder="No. of rows"
+          min="1"
+          max="64"
+          value=4
+        />
+        <input
+          type="number"
+          name="cols"
+          id="cols"
+          placeholder="No. of columns"
+          min="1"
+          max="64"
+          value=4
+        />
+        <input type="submit" value="Make grid" />
+      </form>
+      <div id="grid-container"></div>
+    </div>
+  </body>
+</html>

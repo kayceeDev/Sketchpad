@@ -1,0 +1,65 @@
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-family: "Roboto", sans-serif;
+    background-color: #ededed;
+}
+
+.container {
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem;
+}
+
+#grid-container {
+  display: grid;
+  width: 50%;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  height: 60vh;
+  box-shadow: 0 0 4px #ccc;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #fff;
+}
+
+#slidecontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
+input[type="number"] {
+  padding: 0.4rem;
+  width: 7.5rem;
+}
+
+
+input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 4px #ccc;
+  }
+  
+  input[type="number"]:hover {
+    box-shadow: 0 0 4px #ccc;
+  }
+
