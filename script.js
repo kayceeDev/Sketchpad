@@ -2,6 +2,10 @@ const container = document.getElementById("grid-container");
 let rows = document.getElementById("rows");
 let cols = document.getElementById("cols");
 const formContainer = document.getElementById("slidecontainer");
+const clear = document.querySelector('.clear')
+const eraser = document.querySelector('.eraser')
+const randomColor = document.querySelector('.random-color')
+const defaultColor = document.querySelector('.default-color')
 
 function makeRows(e) {
   e.preventDefault();
@@ -40,8 +44,25 @@ function makeRowsOnload(rows, cols) {
   }
 }
 
+function draw(e){
+   e.target.classList.toggle('dark')
+}
+function clearAll(){
+   const children = container.children
+   for (let i=0; i< children.length; i++){
+      children[i].classList.remove('dark')
+   }
+
+
+
+}
+
 formContainer.addEventListener("submit", makeRows);
 
 window.onload = function() {
     makeRowsOnload(rows.value, cols.value);
   };
+
+  container.addEventListener('click',draw)
+  clear.addEventListener('click',clearAll)
+defaultColor.addEventListener('click', )
