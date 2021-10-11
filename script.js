@@ -109,13 +109,5 @@ eraser.addEventListener("click", () => {
   isDefault = false;
 });
 
-function eraseAll(e) {
-  console.log(e.target);
-  e.target.style.backgroundColor = "red";
-}
 
-// if (isErase) {
-//   container.addEventListener("click", eraseAll);
-// } else {
-container.addEventListener("click", draw);
-//}
+container.addEventListener("mouseover", draw)
