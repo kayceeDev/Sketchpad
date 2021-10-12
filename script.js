@@ -58,7 +58,7 @@ function draw(e) {
         currentTouch.style.backgroundColor = rainbowColors();
       }
       }
-   if(hoverEvent){
+   else if(hoverEvent){
         if (isErase) {
           e.target.style.backgroundColor = "#fff";
         } else if (isDefault) {
