@@ -48,7 +48,17 @@ function makeRowsOnload(rows, cols) {
 }
 
 function draw(e) {
-   if( window.screen.width >=600 && hoverEvent){
+    if (e.touches && hoverEvent) {
+       let currentTouch =  document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY)
+       if (isErase) {
+        currentTouch.style.backgroundColor = "#fff";
+      } else if (isDefault) {
+        currentTouch.style.backgroundColor = "#000";
+      } else {
+        currentTouch.style.backgroundColor = rainbowColors();
+      }
+      }
+   if(hoverEvent){
         if (isErase) {
           e.target.style.backgroundColor = "#fff";
         } else if (isDefault) {
@@ -57,16 +67,16 @@ function draw(e) {
           e.target.style.backgroundColor = rainbowColors();
         }
     }
-    else if (window.screen.width < 768){
-        hoverEvent = false
-        if (isErase) {
-            e.target.style.backgroundColor = "#fff";
-          } else if (isDefault) {
-            e.target.style.backgroundColor = "#000";
-          } else {
-            e.target.style.backgroundColor = rainbowColors();
-          }
-    }
+    // else if (window.screen.width < 768){
+    //     hoverEvent = false
+    //     if (isErase) {
+    //         e.target.style.backgroundColor = "#fff";
+    //       } else if (isDefault) {
+    //         e.target.style.backgroundColor = "#000";
+    //       } else {
+    //         e.target.style.backgroundColor = rainbowColors();
+    //       }
+    // }
       
   }
 
@@ -133,9 +143,22 @@ eraser.addEventListener("click", () => {
 
 
 container.addEventListener("mouseover", draw)
-container.addEventListener("click", ()=>{
+
+container.addEventListener("touchmove", draw)
+container.addEventListener('click', (e)=>{
         hoverEvent = !hoverEvent
+
 })
+container.addEventListener('touchmove', (e)=>{
+        hoverEvent = true
+
+})
+container.addEventListener('touchend', (e)=>{
+        hoverEvent = false
+
+})
+
+
 
 
 // gridItem.forEach(gi => {
