@@ -41,8 +41,8 @@ function makeRowsOnload(rows, cols) {
 }
 
 function draw(e) {
-    if(hoverEvent){
-
+   if( window.screen.width >=768 && hoverEvent){
+       console.log("kkkkkk")
         if (isErase) {
           e.target.style.backgroundColor = "#fff";
         } else if (isDefault) {
@@ -50,7 +50,18 @@ function draw(e) {
         } else {
           e.target.style.backgroundColor = rainbowColors();
         }
-      }
+    }else if (window.screen.width < 768){
+        hoverEvent = false
+        console.log("lllll")
+        if (isErase) {
+            e.target.style.backgroundColor = "#fff";
+          } else if (isDefault) {
+            e.target.style.backgroundColor = "#000";
+          } else {
+            e.target.style.backgroundColor = rainbowColors();
+          }
+    }
+      
     }
 
 function clearAll() {
@@ -116,5 +127,5 @@ eraser.addEventListener("click", () => {
 
 container.addEventListener("mouseover", draw)
 container.addEventListener("click", ()=>{
-    hoverEvent = !hoverEvent
+        hoverEvent = !hoverEvent
 })
