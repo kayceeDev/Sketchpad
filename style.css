@@ -87,7 +87,7 @@ body {
 }
 
 .grid-item {
-  /* border: 1px solid #ddd; */
+  border: 0.3px dotted #ddd;
   text-align: center;
   background-color: #fff;
 }
