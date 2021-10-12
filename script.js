@@ -8,6 +8,7 @@ const randomColor = document.querySelector(".random-color");
 const defaultColor = document.querySelector(".default-color");
 let isDefault = true;
 let isErase = false;
+let hoverEvent = false
 
 function makeRows(e) {
   e.preventDefault();
@@ -40,14 +41,17 @@ function makeRowsOnload(rows, cols) {
 }
 
 function draw(e) {
-  if (isErase) {
-    e.target.style.backgroundColor = "#fff";
-  } else if (isDefault) {
-    e.target.style.backgroundColor = "#000";
-  } else {
-    e.target.style.backgroundColor = rainbowColors();
-  }
-}
+    if(hoverEvent){
+
+        if (isErase) {
+          e.target.style.backgroundColor = "#fff";
+        } else if (isDefault) {
+          e.target.style.backgroundColor = "#000";
+        } else {
+          e.target.style.backgroundColor = rainbowColors();
+        }
+      }
+    }
 
 function clearAll() {
   const children = container.children;
@@ -111,3 +115,6 @@ eraser.addEventListener("click", () => {
 
 
 container.addEventListener("mouseover", draw)
+container.addEventListener("click", ()=>{
+    hoverEvent = !hoverEvent
+})
