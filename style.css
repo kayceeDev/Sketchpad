@@ -30,11 +30,18 @@ body {
   background: var(--color-black-1);
 }
 
+.title {
+  color: var(--color-red);
+  font-size: 2.5rem;
+  font-style: italic;
+}
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 #grid-container {
@@ -45,25 +52,22 @@ body {
   height: 60vh;
   box-shadow: 0 0 4px #ccc;
 }
-.btns{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
+.btns {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
 }
-
 
 @media screen and (min-width: 40rem) {
   #grid-container {
     width: 50%;
   }
-  
 }
 
 @media screen and (min-width: 50rem) {
-
-.btns{
-    grid-template-columns: repeat(4,1fr);
-}
+  .btns {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .grid-item {
@@ -129,17 +133,20 @@ button:hover {
   animation: animate var(--speed-fast) steps(8) forwards;
 }
 
-.random-color, .default-color {
-    border: 1px solid var(--color-purple);
+.random-color,
+.default-color {
+  border: 1px solid var(--color-purple);
 }
-.random-color:hover,.default-color:hover {
-  background: var(--color-purple) url("https://i.postimg.cc/FzBWFtKM/pixel2.png"); // 360px x 1080px
+.random-color:hover,
+.default-color:hover {
+  background: var(--color-purple)
+    url("https://i.postimg.cc/FzBWFtKM/pixel2.png"); // 360px x 1080px
 }
 @keyframes animate {
-    0% {
-      background-position-y: 0;
-    }
-    100% {
-      background-position-y: -480px;
-    }
+  0% {
+    background-position-y: 0;
   }
+  100% {
+    background-position-y: -480px;
+  }
+}
