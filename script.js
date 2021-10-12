@@ -6,6 +6,9 @@ const clear = document.querySelector(".clear");
 const eraser = document.querySelector(".eraser");
 const randomColor = document.querySelector(".random-color");
 const defaultColor = document.querySelector(".default-color");
+// let gridItem = []
+
+
 let isDefault = true;
 let isErase = false;
 let hoverEvent = false
@@ -27,6 +30,8 @@ function makeRows(e) {
     rows.value = "";
     cols.value = "";
   }
+//   gridItem = document.querySelectorAll('.grid-item');
+//   console.log(gridItem)
 }
 
 function makeRowsOnload(rows, cols) {
@@ -38,11 +43,12 @@ function makeRowsOnload(rows, cols) {
     let cell = document.createElement("div");
     container.appendChild(cell).className = "grid-item";
   }
+//   gridItem = document.querySelectorAll('.grid-item');
+//   console.log(gridItem)
 }
 
 function draw(e) {
-   if( window.screen.width >=768 && hoverEvent){
-       console.log("kkkkkk")
+   if( window.screen.width >=600 && hoverEvent){
         if (isErase) {
           e.target.style.backgroundColor = "#fff";
         } else if (isDefault) {
@@ -50,9 +56,9 @@ function draw(e) {
         } else {
           e.target.style.backgroundColor = rainbowColors();
         }
-    }else if (window.screen.width < 768){
+    }
+    else if (window.screen.width < 768){
         hoverEvent = false
-        console.log("lllll")
         if (isErase) {
             e.target.style.backgroundColor = "#fff";
           } else if (isDefault) {
@@ -62,7 +68,8 @@ function draw(e) {
           }
     }
       
-    }
+  }
+
 
 function clearAll() {
   const children = container.children;
@@ -129,3 +136,8 @@ container.addEventListener("mouseover", draw)
 container.addEventListener("click", ()=>{
         hoverEvent = !hoverEvent
 })
+
+
+// gridItem.forEach(gi => {
+//     gi.addEventListener("click", draw2)
+// });
